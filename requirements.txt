@@ -118,6 +118,7 @@ tree-sitter-swift==0.7.3
 tree-sitter-typescript==0.23.2
 tree-sitter-verilog==1.0.3
 tree-sitter-zig==1.1.2
+twilio==9.3.7
 typesystem==0.3.0.dev0
 typing-inspection==0.4.2
 typing_extensions==4.14.1
