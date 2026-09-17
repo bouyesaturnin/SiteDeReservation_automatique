@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'hotel_api',
 ]
 
-CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', '').split(',') + [
+cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', '').split(',')
+CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins if origin.strip()] + [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
 ]
