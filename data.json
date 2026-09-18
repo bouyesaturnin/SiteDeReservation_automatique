@@ -1,0 +1,1141 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ut7SxtvkiZojZoZ4Py7rAh$3xHyqAG13Iiznn9wPXU/nXQGRmWyL4KsZx+nE7wb3TU=",
+    "last_login": "2026-09-11T10:31:47.111Z",
+    "is_superuser": true,
+    "username": "saturnin",
+    "first_name": "",
+    "last_name": "",
+    "email": "bouyesaturnin@yahoo.fr",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-24T20:11:51.602Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$rB7DXEPZDFPiTurtas7AHc$JIWd5eqKlWmQmGo+5qbWzrRlSUTNMsAwK8DZNisywJU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Boke",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-24T20:18:38.495Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$AG3fs053amhXXldxuAu2le$JfMuBncP5MFhN7JnofZIis+SgWpCbLo3J+ZkcmQULpc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Ebanga",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-24T20:22:14.438Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$hzYwvWbGC7JgYIHa8jbiU6$Et5vNU7/nJC0V1bqIKnDEsJlsyOeGTcNrPDu1ZcC9MI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Florent",
+    "first_name": "",
+    "last_name": "",
+    "email": "florent@yahoo.fr",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-25T14:03:44.929Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$0cHxLGFcip3P1w6tkNaFO4$qf2CmW74ETTdXOc6E660qiRTCo6q6LOLciGD3HOb9dY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Baba",
+    "first_name": "",
+    "last_name": "",
+    "email": "baba@yahoo.fr",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-25T20:33:55.568Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$3H7Is0dlLWiM0dhJfBmIfs$ggGOziZcWokKMXbuS/d0hFzt2dXnn+8MmFkHnflW7HQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Parfait",
+    "first_name": "",
+    "last_name": "",
+    "email": "parfait@yahoo.fr",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-26T05:58:44.933Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$vQ4CoSScKwKVziCx68JenO$ckIeksFoI9NGc1671e9cahklH/9BNAOAcnO/1qXTFHo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Ndoumbe",
+    "first_name": "",
+    "last_name": "",
+    "email": "ndoumbe@yahoo.fr",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-26T06:11:51.683Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$fNqgo01nAwrRfIt8d2nZSM$Nlh0Mh9zPOjQAJVYCfSPJXXEk+TIc6jENfepwRuIick=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Jovani",
+    "first_name": "",
+    "last_name": "",
+    "email": "jovani@yahoo.fr",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-26T06:29:46.531Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Z4qyG3asO5600GSTKsZebX$LesR0w+BgTlMcv5tC07GqjfkKuk3/OUPc1QvFm6djdc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "bouye",
+    "first_name": "",
+    "last_name": "",
+    "email": "bouyesaturnin@yahoo.fr",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-11T09:49:14.878Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$eOZOhs5wFUIxHR1UD0hSKi$iutwKaO+SLeAOvoFt+OAcTZFa9YYd2gFcaNq1qlKXn8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Samba",
+    "first_name": "",
+    "last_name": "",
+    "email": "bouyesaturnin@yahoo.fr",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-11T10:03:27.623Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ms8VXgyYa1QxcN9FPpfvq5$j502OBwoNDx/WrU+XATpigYN5fMY7cv/R4lpg/XzNQ8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Simplice",
+    "first_name": "",
+    "last_name": "",
+    "email": "bouyesaturnin@yahoo.fr",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-11T11:10:14.334Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2c6a3hqkvdpri6vkjssdddqvahhuqgsf",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCB0mFcuu8ZCMOAVA0kpV0Z765NutDtf-_9l_BhW4vfelr8zOIilDj9bhTiI9Ud8D3UW5Ox1XWZSe6KPGiXU-P0vB7u30EJvXxrYmMBOGl0BkYwZ4eGU8rEiNoap1Aj02Cd1eAQRg1gQ1YDE0Q3YBbvD8QnNvU:1w5875:i8Bs85ZUqn1zRGQayqtriaX9_cHGfi7dHGbFr6GPnVk",
+    "expire_date": "2026-04-07T20:12:31.364Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7jkmgrj6v7360xbx743xhfslo7sd4phu",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCB0mFcuu8ZCMOAVA0kpV0Z765NutDtf-_9l_BhW4vfelr8zOIilDj9bhTiI9Ud8D3UW5Ox1XWZSe6KPGiXU-P0vB7u30EJvXxrYmMBOGl0BkYwZ4eGU8rEiNoap1Aj02Cd1eAQRg1gQ1YDE0Q3YBbvD8QnNvU:1x4yXr:jic9bGK_-RVSMlfVbjCg_tw6RyNnqknzvFPdrNWIegc",
+    "expire_date": "2026-09-25T10:31:47.111Z"
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 1,
+  "fields": {
+    "name": "single_room",
+    "room_type": "SINGLE",
+    "price_per_night": "180.00",
+    "capacity": 1,
+    "is_available": true,
+    "image_url": "http://127.0.0.1:8000/media/rooms/room_1.jpg",
+    "description": "Une chambre simple élégante avec tout le confort nécessaire pour un séjour reposant. Idéale pour les voyageurs solo ou les courts séjours professionnels."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 2,
+  "fields": {
+    "name": "single_room",
+    "room_type": "SINGLE",
+    "price_per_night": "250.00",
+    "capacity": 2,
+    "is_available": true,
+    "image_url": "http://127.0.0.1:8000/media/rooms/room_2.jpg",
+    "description": "Chambre simple spacieuse avec une vue dégagée sur la ville. Décoration moderne et literie haut de gamme pour un sommeil parfait."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 3,
+  "fields": {
+    "name": "Double_room",
+    "room_type": "DOUBLE",
+    "price_per_night": "350.00",
+    "capacity": 3,
+    "is_available": true,
+    "image_url": "http://127.0.0.1:8000/media/rooms/room_3.jpg",
+    "description": "Chambre double lumineuse avec grand lit king-size. Parfaite pour les couples, elle offre un espace de vie généreux et une salle de bain privative."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 4,
+  "fields": {
+    "name": "Maison Alfort",
+    "room_type": "SINGLE",
+    "price_per_night": "120.00",
+    "capacity": 1,
+    "is_available": true,
+    "image_url": "http://127.0.0.1:8000/media/rooms/room_4.jpg",
+    "description": "Chambre confortable au cœur de Maison Alfort. Idéale pour un séjour calme avec toutes les commodités modernes."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 5,
+  "fields": {
+    "name": "Chambre Deluxe",
+    "room_type": "DOUBLE",
+    "price_per_night": "120.00",
+    "capacity": 2,
+    "is_available": true,
+    "image_url": "http://127.0.0.1:8000/media/rooms/room_7.jpg",
+    "description": "Chambre Deluxe avec finitions premium et vue partielle sur jardin. Mobilier de qualité supérieure et espace de travail dédié pour un séjour d'exception."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 6,
+  "fields": {
+    "name": "Suite Prestige",
+    "room_type": "SUITE",
+    "price_per_night": "199.00",
+    "capacity": 3,
+    "is_available": true,
+    "image_url": "http://127.0.0.1:8000/media/rooms/room_6.jpg",
+    "description": "Suite Prestige en duplex avec salon privé et baignoire balnéo. Le summum du luxe pour une expérience inoubliable dans notre établissement."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 7,
+  "fields": {
+    "name": "Chambre Cosy",
+    "room_type": "SINGLE",
+    "price_per_night": "75.00",
+    "capacity": 1,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-7/800/500",
+    "description": "Une chambre cosy idéale pour un voyageur solo, décorée avec goût et dotée de tout le confort moderne."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 8,
+  "fields": {
+    "name": "Suite Junior",
+    "room_type": "SUITE",
+    "price_per_night": "160.00",
+    "capacity": 2,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-8/800/500",
+    "description": "Suite Junior élégante avec coin salon et vue dégagée, parfaite pour un séjour romantique."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 9,
+  "fields": {
+    "name": "Chambre Vue Jardin",
+    "room_type": "DOUBLE",
+    "price_per_night": "110.00",
+    "capacity": 2,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-9/800/500",
+    "description": "Chambre double avec vue sur le jardin intérieur, idéale pour un séjour calme et ressourçant."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 10,
+  "fields": {
+    "name": "Chambre Supérieure",
+    "room_type": "SINGLE",
+    "price_per_night": "95.00",
+    "capacity": 1,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-10/800/500",
+    "description": "Chambre supérieure rénovée avec literie premium et salle de bain moderne."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 11,
+  "fields": {
+    "name": "Suite Royale",
+    "room_type": "SUITE",
+    "price_per_night": "280.00",
+    "capacity": 4,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-11/800/500",
+    "description": "Notre suite la plus luxueuse avec deux chambres, salon privé et terrasse panoramique."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 12,
+  "fields": {
+    "name": "Chambre Business",
+    "room_type": "SINGLE",
+    "price_per_night": "105.00",
+    "capacity": 1,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-12/800/500",
+    "description": "Conçue pour les voyageurs d'affaires avec bureau ergonomique, WiFi fibre et service express."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 13,
+  "fields": {
+    "name": "Chambre Familiale",
+    "room_type": "DOUBLE",
+    "price_per_night": "145.00",
+    "capacity": 4,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-13/800/500",
+    "description": "Grande chambre familiale avec deux lits doubles et espace de jeux pour les enfants."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 14,
+  "fields": {
+    "name": "Suite Deluxe Panorama",
+    "room_type": "SUITE",
+    "price_per_night": "220.00",
+    "capacity": 3,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-14/800/500",
+    "description": "Suite avec baie vitrée offrant une vue panoramique sur la ville, jacuzzi privé inclus."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 15,
+  "fields": {
+    "name": "Chambre Standard Plus",
+    "room_type": "SINGLE",
+    "price_per_night": "65.00",
+    "capacity": 1,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-15/800/500",
+    "description": "Chambre confortable au meilleur rapport qualité-prix, idéale pour les courts séjours."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 16,
+  "fields": {
+    "name": "Chambre Double Vue Ville",
+    "room_type": "DOUBLE",
+    "price_per_night": "130.00",
+    "capacity": 2,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-16/800/500",
+    "description": "Chambre double avec vue imprenable sur les toits de Paris, romantique et lumineuse."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 17,
+  "fields": {
+    "name": "Suite Executive",
+    "room_type": "SUITE",
+    "price_per_night": "195.00",
+    "capacity": 2,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-17/800/500",
+    "description": "Suite Executive avec salon privé, minibar premium et accès au lounge VIP de l'hôtel."
+  }
+},
+{
+  "model": "hotel_api.room",
+  "pk": 18,
+  "fields": {
+    "name": "Chambre Duplex",
+    "room_type": "DOUBLE",
+    "price_per_night": "175.00",
+    "capacity": 3,
+    "is_available": true,
+    "image_url": "https://picsum.photos/seed/room-18/800/500",
+    "description": "Chambre duplex sur deux niveaux avec mezzanine, espace unique et design contemporain."
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 2,
+    "check_in": "2026-03-25",
+    "check_out": "2026-03-27",
+    "total_price": "500.00",
+    "created_at": "2026-03-24T20:17:40.415Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "Boke"
+    ],
+    "room": 3,
+    "check_in": "2026-03-26",
+    "check_out": "2026-03-29",
+    "total_price": "1050.00",
+    "created_at": "2026-03-24T20:21:20.392Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "Ebanga"
+    ],
+    "room": 3,
+    "check_in": "2026-03-27",
+    "check_out": "2026-03-29",
+    "total_price": "700.00",
+    "created_at": "2026-03-24T20:23:19.194Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "Samba"
+    ],
+    "room": 1,
+    "check_in": "2026-09-12",
+    "check_out": "2026-09-20",
+    "total_price": "1440.00",
+    "created_at": "2026-09-11T10:06:40.594Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 1,
+    "check_in": "2026-04-03",
+    "check_out": "2026-04-06",
+    "total_price": "540.00",
+    "created_at": "2026-09-11T19:24:48.386Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 3,
+    "check_in": "2026-04-08",
+    "check_out": "2026-04-10",
+    "total_price": "700.00",
+    "created_at": "2026-09-11T19:24:48.392Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 5,
+    "check_in": "2026-04-12",
+    "check_out": "2026-04-15",
+    "total_price": "480.00",
+    "created_at": "2026-09-11T19:24:48.398Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 2,
+    "check_in": "2026-04-18",
+    "check_out": "2026-04-20",
+    "total_price": "320.00",
+    "created_at": "2026-09-11T19:24:48.404Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 6,
+    "check_in": "2026-04-22",
+    "check_out": "2026-04-25",
+    "total_price": "597.00",
+    "created_at": "2026-09-11T19:24:48.409Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 4,
+    "check_in": "2026-05-02",
+    "check_out": "2026-05-05",
+    "total_price": "435.00",
+    "created_at": "2026-09-11T19:24:48.414Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 1,
+    "check_in": "2026-05-07",
+    "check_out": "2026-05-09",
+    "total_price": "360.00",
+    "created_at": "2026-09-11T19:24:48.419Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 7,
+    "check_in": "2026-05-11",
+    "check_out": "2026-05-14",
+    "total_price": "480.00",
+    "created_at": "2026-09-11T19:24:48.425Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 3,
+    "check_in": "2026-05-16",
+    "check_out": "2026-05-19",
+    "total_price": "1050.00",
+    "created_at": "2026-09-11T19:24:48.429Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 5,
+    "check_in": "2026-05-21",
+    "check_out": "2026-05-23",
+    "total_price": "240.00",
+    "created_at": "2026-09-11T19:24:48.435Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 15,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 2,
+    "check_in": "2026-05-26",
+    "check_out": "2026-05-30",
+    "total_price": "640.00",
+    "created_at": "2026-09-11T19:24:48.437Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 16,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 8,
+    "check_in": "2026-06-01",
+    "check_out": "2026-06-04",
+    "total_price": "480.00",
+    "created_at": "2026-09-11T19:24:48.437Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 17,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 4,
+    "check_in": "2026-06-06",
+    "check_out": "2026-06-08",
+    "total_price": "290.00",
+    "created_at": "2026-09-11T19:24:48.453Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 18,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 6,
+    "check_in": "2026-06-10",
+    "check_out": "2026-06-13",
+    "total_price": "597.00",
+    "created_at": "2026-09-11T19:24:48.458Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 1,
+    "check_in": "2026-06-15",
+    "check_out": "2026-06-18",
+    "total_price": "540.00",
+    "created_at": "2026-09-11T19:24:48.458Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 20,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 7,
+    "check_in": "2026-06-20",
+    "check_out": "2026-06-23",
+    "total_price": "480.00",
+    "created_at": "2026-09-11T19:24:48.468Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 21,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 3,
+    "check_in": "2026-06-25",
+    "check_out": "2026-06-28",
+    "total_price": "1050.00",
+    "created_at": "2026-09-11T19:24:48.475Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 22,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 5,
+    "check_in": "2026-07-02",
+    "check_out": "2026-07-06",
+    "total_price": "640.00",
+    "created_at": "2026-09-11T19:24:48.479Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 23,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 8,
+    "check_in": "2026-07-08",
+    "check_out": "2026-07-11",
+    "total_price": "600.00",
+    "created_at": "2026-09-11T19:24:48.486Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 24,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 2,
+    "check_in": "2026-07-13",
+    "check_out": "2026-07-16",
+    "total_price": "480.00",
+    "created_at": "2026-09-11T19:24:48.491Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 25,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 6,
+    "check_in": "2026-07-18",
+    "check_out": "2026-07-22",
+    "total_price": "796.00",
+    "created_at": "2026-09-11T19:24:48.496Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 26,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 4,
+    "check_in": "2026-07-23",
+    "check_out": "2026-07-26",
+    "total_price": "435.00",
+    "created_at": "2026-09-11T19:24:48.501Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 27,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 1,
+    "check_in": "2026-07-27",
+    "check_out": "2026-07-30",
+    "total_price": "540.00",
+    "created_at": "2026-09-11T19:24:48.507Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 28,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 7,
+    "check_in": "2026-08-01",
+    "check_out": "2026-08-05",
+    "total_price": "640.00",
+    "created_at": "2026-09-11T19:24:48.511Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 29,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 3,
+    "check_in": "2026-08-07",
+    "check_out": "2026-08-10",
+    "total_price": "1050.00",
+    "created_at": "2026-09-11T19:24:48.518Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 30,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 5,
+    "check_in": "2026-08-12",
+    "check_out": "2026-08-15",
+    "total_price": "480.00",
+    "created_at": "2026-09-11T19:24:48.523Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 31,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 8,
+    "check_in": "2026-08-17",
+    "check_out": "2026-08-20",
+    "total_price": "600.00",
+    "created_at": "2026-09-11T19:24:48.524Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 32,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 2,
+    "check_in": "2026-08-21",
+    "check_out": "2026-08-24",
+    "total_price": "480.00",
+    "created_at": "2026-09-11T19:24:48.534Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 33,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 6,
+    "check_in": "2026-08-26",
+    "check_out": "2026-08-29",
+    "total_price": "597.00",
+    "created_at": "2026-09-11T19:24:48.539Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 34,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 4,
+    "check_in": "2026-08-30",
+    "check_out": "2026-09-02",
+    "total_price": "580.00",
+    "created_at": "2026-09-11T19:24:48.543Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 35,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 1,
+    "check_in": "2026-09-03",
+    "check_out": "2026-09-06",
+    "total_price": "540.00",
+    "created_at": "2026-09-11T19:24:48.549Z"
+  }
+},
+{
+  "model": "hotel_api.booking",
+  "pk": 36,
+  "fields": {
+    "user": [
+      "saturnin"
+    ],
+    "room": 7,
+    "check_in": "2026-09-07",
+    "check_out": "2026-09-10",
+    "total_price": "480.00",
+    "created_at": "2026-09-11T19:24:48.555Z"
+  }
+},
+{
+  "model": "hotel_api.sitesettings",
+  "pk": 1,
+  "fields": {
+    "site_name": "ProRDV",
+    "tagline": "Votre hôtel de luxe au cœur de la ville",
+    "primary_color": "#2563eb",
+    "hero_title": "Trouvez votre chambre idéale",
+    "hero_subtitle": "Réservez en quelques clics, profitez sans attendre.",
+    "footer_description": "Un hôtel d'exception au cœur de la ville, alliant luxe moderne et hospitalité authentique pour un séjour inoubliable.",
+    "footer_address": "12 Avenue des Hôtels, 75008 Paris, France",
+    "footer_phone": "+33 1 23 45 67 89",
+    "footer_email": "contact@prordv.fr",
+    "weekend_surcharge": 20,
+    "peak_surcharge": 30,
+    "peak_months": "7,8"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-03-24T20:16:19.147Z",
+    "user": [
+      "saturnin"
+    ],
+    "content_type": [
+      "hotel_api",
+      "room"
+    ],
+    "object_id": "1",
+    "object_repr": "Saturnin (SINGLE)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-03-24T20:17:32.063Z",
+    "user": [
+      "saturnin"
+    ],
+    "content_type": [
+      "hotel_api",
+      "room"
+    ],
+    "object_id": "2",
+    "object_repr": "single_room (SINGLE)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-03-24T20:17:40.417Z",
+    "user": [
+      "saturnin"
+    ],
+    "content_type": [
+      "hotel_api",
+      "booking"
+    ],
+    "object_id": "1",
+    "object_repr": "Réservation de saturnin - single_room",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-03-24T20:18:39.628Z",
+    "user": [
+      "saturnin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "2",
+    "object_repr": "Boke",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-03-24T20:19:29.068Z",
+    "user": [
+      "saturnin"
+    ],
+    "content_type": [
+      "hotel_api",
+      "room"
+    ],
+    "object_id": "3",
+    "object_repr": "Double_room (DOUBLE)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-03-24T20:21:20.394Z",
+    "user": [
+      "saturnin"
+    ],
+    "content_type": [
+      "hotel_api",
+      "booking"
+    ],
+    "object_id": "2",
+    "object_repr": "Réservation de Boke - Double_room",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-03-24T20:22:15.403Z",
+    "user": [
+      "saturnin"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "3",
+    "object_repr": "Ebanga",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-03-24T20:23:19.196Z",
+    "user": [
+      "saturnin"
+    ],
+    "content_type": [
+      "hotel_api",
+      "booking"
+    ],
+    "object_id": "3",
+    "object_repr": "Réservation de Ebanga - Double_room",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-03-24T20:24:22.929Z",
+    "user": [
+      "saturnin"
+    ],
+    "content_type": [
+      "hotel_api",
+      "room"
+    ],
+    "object_id": "1",
+    "object_repr": "single_room (SINGLE)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Price per night\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-03-24T20:24:40.433Z",
+    "user": [
+      "saturnin"
+    ],
+    "content_type": [
+      "hotel_api",
+      "room"
+    ],
+    "object_id": "1",
+    "object_repr": "single_room (SINGLE)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Capacity\"]}}]"
+  }
+}
+]
