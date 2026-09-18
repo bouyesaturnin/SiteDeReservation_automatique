@@ -64,7 +64,6 @@ packaging==25.0
 pillow==10.4.0
 platformdirs==4.5.0
 prompt_toolkit==3.0.51
-psycopg2==2.9.11
 psycopg2-binary==2.9.9
 pycparser==2.23
 pydantic==2.13.4
