@@ -15,7 +15,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = os.environ.get('SECRET_KEY', 'change-me-in-production')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 _allowed = os.environ.get('ALLOWED_HOSTS', '')
-ALLOWED_HOSTS = [h.strip() for h in _allowed.split(',') if h.strip()] + ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = [h.strip() for h in _allowed.split(',') if h.strip()] + [
+    'localhost',
+    '127.0.0.1',
+    '.railway.app',
+    '.up.railway.app',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
