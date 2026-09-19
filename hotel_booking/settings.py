@@ -38,6 +38,7 @@ cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', '').split(',')
 CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins if origin.strip()] + [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
+    'https://site-de-reservation-automatique.vercel.app',
 ]
 
 CORS_ALLOW_HEADERS = [
