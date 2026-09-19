@@ -211,7 +211,7 @@
     "price_per_night": "180.00",
     "capacity": 1,
     "is_available": true,
-    "image_url": "http://127.0.0.1:8000/media/rooms/room_1.jpg",
+    "image_url": "https://res.cloudinary.com/dhc0gpzwo/image/upload/v1789811374/hotel/rooms/room_1.jpg",
     "description": "Une chambre simple élégante avec tout le confort nécessaire pour un séjour reposant. Idéale pour les voyageurs solo ou les courts séjours professionnels."
   }
 },
@@ -224,7 +224,7 @@
     "price_per_night": "250.00",
     "capacity": 2,
     "is_available": true,
-    "image_url": "http://127.0.0.1:8000/media/rooms/room_2.jpg",
+    "image_url": "https://res.cloudinary.com/dhc0gpzwo/image/upload/v1789811375/hotel/rooms/room_2.jpg",
     "description": "Chambre simple spacieuse avec une vue dégagée sur la ville. Décoration moderne et literie haut de gamme pour un sommeil parfait."
   }
 },
@@ -237,7 +237,7 @@
     "price_per_night": "350.00",
     "capacity": 3,
     "is_available": true,
-    "image_url": "http://127.0.0.1:8000/media/rooms/room_3.jpg",
+    "image_url": "https://res.cloudinary.com/dhc0gpzwo/image/upload/v1789811375/hotel/rooms/room_3.jpg",
     "description": "Chambre double lumineuse avec grand lit king-size. Parfaite pour les couples, elle offre un espace de vie généreux et une salle de bain privative."
   }
 },
@@ -250,7 +250,7 @@
     "price_per_night": "120.00",
     "capacity": 1,
     "is_available": true,
-    "image_url": "http://127.0.0.1:8000/media/rooms/room_4.jpg",
+    "image_url": "https://res.cloudinary.com/dhc0gpzwo/image/upload/v1789811376/hotel/rooms/room_4.jpg",
     "description": "Chambre confortable au cœur de Maison Alfort. Idéale pour un séjour calme avec toutes les commodités modernes."
   }
 },
@@ -263,7 +263,7 @@
     "price_per_night": "120.00",
     "capacity": 2,
     "is_available": true,
-    "image_url": "http://127.0.0.1:8000/media/rooms/room_7.jpg",
+    "image_url": "https://res.cloudinary.com/dhc0gpzwo/image/upload/v1789811376/hotel/rooms/room_7.jpg",
     "description": "Chambre Deluxe avec finitions premium et vue partielle sur jardin. Mobilier de qualité supérieure et espace de travail dédié pour un séjour d'exception."
   }
 },
@@ -276,7 +276,7 @@
     "price_per_night": "199.00",
     "capacity": 3,
     "is_available": true,
-    "image_url": "http://127.0.0.1:8000/media/rooms/room_6.jpg",
+    "image_url": "https://res.cloudinary.com/dhc0gpzwo/image/upload/v1789811377/hotel/rooms/room_6.jpg",
     "description": "Suite Prestige en duplex avec salon privé et baignoire balnéo. Le summum du luxe pour une expérience inoubliable dans notre établissement."
   }
 },
