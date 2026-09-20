@@ -182,11 +182,13 @@ const CARD_ELEMENT_OPTIONS = {
     base: {
       fontSize: '16px',
       color: '#1f2937',
-      fontFamily: 'inherit',
+      fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+      lineHeight: '24px',
       '::placeholder': { color: '#9ca3af' },
     },
     invalid: { color: '#ef4444' },
   },
+  hidePostalCode: true,
 };
 
 const PaymentForm = ({ room, dates, totalPrice, nights, conflictingPeriod, pricing, pricingLoading }) => {
@@ -256,7 +258,10 @@ const PaymentForm = ({ room, dates, totalPrice, nights, conflictingPeriod, prici
         <label className="text-xs text-gray-400 uppercase font-semibold mb-2 block">
           Informations de carte
         </label>
-        <div className="border dark:border-gray-700 rounded-lg p-3.5 bg-white dark:bg-gray-800 focus-within:ring-2 focus-within:ring-blue-500 transition">
+        <div
+          className="border border-gray-300 dark:border-gray-600 rounded-lg bg-white focus-within:ring-2 focus-within:ring-blue-500 transition"
+          style={{ padding: '12px 14px', minHeight: '46px' }}
+        >
           <CardElement options={CARD_ELEMENT_OPTIONS} />
         </div>
         <p className="text-xs text-gray-400 mt-1.5">
