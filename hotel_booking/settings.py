@@ -4,10 +4,10 @@ from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
 
-# Charge les variables depuis .env
-load_dotenv()
-
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Charge les variables depuis .env
+load_dotenv(BASE_DIR / '.env', override=True)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -123,6 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ANTHROPIC_API_KEY = os.environ.get('ANTHROPIC_API_KEY')
 TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
