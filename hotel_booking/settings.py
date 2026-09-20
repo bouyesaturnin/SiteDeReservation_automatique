@@ -22,6 +22,12 @@ ALLOWED_HOSTS = [h.strip() for h in _allowed.split(',') if h.strip()] + [
     '.up.railway.app',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.railway.app',
+    'https://*.up.railway.app',
+    'https://site-de-reservation-automatique.vercel.app',
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
