@@ -1,9 +1,8 @@
 import os
 import stripe
+from stripe import StripeClient
 from django.conf import settings
 from rest_framework import viewsets, status
-
-stripe.api_key = os.environ.get('STRIPE_SECRET_KEY') or getattr(settings, 'STRIPE_SECRET_KEY', None)
 from rest_framework.decorators import api_view, permission_classes, action
 from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly, IsAuthenticated, BasePermission, SAFE_METHODS
 from rest_framework.response import Response
@@ -200,10 +199,8 @@ class BookingViewSet(viewsets.ModelViewSet):
             return Response({'error': 'Paiement requis.'}, status=status.HTTP_402_PAYMENT_REQUIRED)
 
         try:
-            intent = stripe.PaymentIntent.retrieve(
-                payment_intent_id,
-                api_key=settings.STRIPE_SECRET_KEY,
-            )
+            client = StripeClient(settings.STRIPE_SECRET_KEY)
+            intent = client.v1.payment_intents.retrieve(payment_intent_id)
             if intent.status != 'succeeded':
                 return Response({'error': 'Paiement non complété.'}, status=status.HTTP_402_PAYMENT_REQUIRED)
         except stripe.StripeError:
@@ -470,12 +467,12 @@ def create_payment_intent(request):
     if not amount:
         return Response({'error': 'Montant requis.'}, status=400)
     try:
-        intent = stripe.PaymentIntent.create(
-            amount=int(float(amount) * 100),
-            currency='eur',
-            metadata={'user_id': request.user.id},
-            api_key=settings.STRIPE_SECRET_KEY,
-        )
+        client = StripeClient(settings.STRIPE_SECRET_KEY)
+        intent = client.v1.payment_intents.create(params={
+            'amount': int(float(amount) * 100),
+            'currency': 'eur',
+            'metadata': {'user_id': str(request.user.id)},
+        })
         return Response({'client_secret': intent.client_secret})
     except stripe.StripeError as e:
         return Response({'error': str(e)}, status=400)
