@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import api from '../api/axios';
 import { getRoomImage } from '../api/roomImages';
 import LazyImage from '../components/LazyImage';
@@ -9,6 +11,8 @@ import {
   Loader2, ArrowLeft, XCircle, TrendingUp, Tag,
   ChevronLeft, ChevronRight,
 } from 'lucide-react';
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const ROOM_TYPE_LABELS = { SINGLE: 'Simple', DOUBLE: 'Double', SUITE: 'Suite' };
 const MONTHS_FR = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
@@ -32,7 +36,6 @@ const BookingCalendar = ({ unavailable, dates, onChange }) => {
   const [selecting, setSelecting] = useState('check_in');
   const [hoverDate, setHoverDate] = useState(null);
 
-  /* Set de toutes les dates indisponibles (jour par jour) */
   const unavailSet = useMemo(() => {
     const s = new Set();
     unavailable.forEach(({ check_in, check_out }) => {
@@ -55,7 +58,6 @@ const BookingCalendar = ({ unavailable, dates, onChange }) => {
       onChange({ check_in: dateStr, check_out: addDays(dateStr, 1) });
       setSelecting('check_out');
     } else {
-      // Vérifier que la plage ne chevauche pas une date indisponible
       let d = new Date(checkIn);
       d.setDate(d.getDate() + 1);
       let hasConflict = false;
@@ -76,10 +78,9 @@ const BookingCalendar = ({ unavailable, dates, onChange }) => {
   const prevMonth = () => { if (month === 0) { setMonth(11); setYear(y => y-1); } else setMonth(m => m-1); };
   const nextMonth = () => { if (month === 11) { setMonth(0); setYear(y => y+1); } else setMonth(m => m+1); };
 
-  /* Génère les cellules du mois */
   const cells = useMemo(() => {
     const firstDay = new Date(year, month, 1).getDay();
-    const offset = (firstDay + 6) % 7; // lundi = 0
+    const offset = (firstDay + 6) % 7;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const result = Array(offset).fill(null);
     for (let d = 1; d <= daysInMonth; d++) {
@@ -98,7 +99,6 @@ const BookingCalendar = ({ unavailable, dates, onChange }) => {
 
   return (
     <div className="select-none">
-      {/* Navigation mois */}
       <div className="flex items-center justify-between mb-4">
         <button onClick={prevMonth} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition text-gray-600 dark:text-gray-300">
           <ChevronLeft size={18} />
@@ -111,14 +111,12 @@ const BookingCalendar = ({ unavailable, dates, onChange }) => {
         </button>
       </div>
 
-      {/* En-têtes jours */}
       <div className="grid grid-cols-7 mb-1">
         {DAYS_FR.map(d => (
           <div key={d} className="text-center text-xs font-bold text-gray-400 py-1">{d}</div>
         ))}
       </div>
 
-      {/* Grille jours */}
       <div className="grid grid-cols-7">
         {cells.map((cell, i) => {
           if (!cell) return <div key={`e-${i}`} className="h-9" />;
@@ -163,7 +161,6 @@ const BookingCalendar = ({ unavailable, dates, onChange }) => {
         })}
       </div>
 
-      {/* Légende + instruction */}
       <div className="flex flex-wrap items-center gap-3 mt-4 text-xs text-gray-400 border-t dark:border-gray-800 pt-3">
         <span className="flex items-center gap-1.5">
           <span className="w-3 h-3 rounded-full bg-blue-600 inline-block" /> Sélectionné
@@ -179,6 +176,120 @@ const BookingCalendar = ({ unavailable, dates, onChange }) => {
   );
 };
 
+/* ─── Formulaire Stripe ─── */
+const CARD_ELEMENT_OPTIONS = {
+  style: {
+    base: {
+      fontSize: '16px',
+      color: '#1f2937',
+      fontFamily: 'inherit',
+      '::placeholder': { color: '#9ca3af' },
+    },
+    invalid: { color: '#ef4444' },
+  },
+};
+
+const PaymentForm = ({ room, dates, totalPrice, nights, conflictingPeriod, pricing, pricingLoading }) => {
+  const stripe = useStripe();
+  const elements = useElements();
+  const navigate = useNavigate();
+
+  const [paying, setPaying] = useState(false);
+  const [error, setError] = useState('');
+
+  const handlePay = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (fromStr(dates.check_out) <= fromStr(dates.check_in)) {
+      setError("La date de départ doit être après la date d'arrivée."); return;
+    }
+    if (conflictingPeriod) {
+      setError("Ces dates sont déjà réservées. Veuillez choisir d'autres dates."); return;
+    }
+    if (!stripe || !elements) return;
+
+    try {
+      setPaying(true);
+
+      // 1. Create PaymentIntent on backend
+      const intentRes = await api.post('payments/create-intent/', { amount: totalPrice });
+      const { client_secret } = intentRes.data;
+
+      // 2. Confirm card payment with Stripe
+      const cardElement = elements.getElement(CardElement);
+      const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(client_secret, {
+        payment_method: { card: cardElement },
+      });
+
+      if (stripeError) {
+        setError(stripeError.message);
+        return;
+      }
+
+      // 3. Create booking with verified payment_intent_id
+      const res = await api.post('bookings/', {
+        room: room.id,
+        check_in: dates.check_in,
+        check_out: dates.check_out,
+        total_price: totalPrice,
+        payment_intent_id: paymentIntent.id,
+      });
+
+      navigate('/success', { state: { room, dates, total: totalPrice, booking: res.data } });
+    } catch (err) {
+      setError(err.response?.data?.error || "Erreur lors de la réservation. Réessaie.");
+    } finally {
+      setPaying(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handlePay} className="space-y-4">
+      {error && (
+        <div className="mb-4 bg-red-50 border border-red-200 text-red-600 text-sm p-3 rounded-lg flex items-start gap-2">
+          <XCircle size={16} className="mt-0.5 shrink-0" /> {error}
+        </div>
+      )}
+
+      <div>
+        <label className="text-xs text-gray-400 uppercase font-semibold mb-2 block">
+          Informations de carte
+        </label>
+        <div className="border dark:border-gray-700 rounded-lg p-3.5 bg-white dark:bg-gray-800 focus-within:ring-2 focus-within:ring-blue-500 transition">
+          <CardElement options={CARD_ELEMENT_OPTIONS} />
+        </div>
+        <p className="text-xs text-gray-400 mt-1.5">
+          Test : <span className="font-mono">4242 4242 4242 4242</span> · 12/28 · 123
+        </p>
+      </div>
+
+      <div className="border-t dark:border-gray-700 pt-4 mt-2">
+        <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-1">
+          <span>Chambre ({nights} nuit{nights > 1 ? 's' : ''})</span>
+          <span>{totalPrice}€</span>
+        </div>
+        <div className="flex justify-between font-black text-lg mt-2 text-gray-900 dark:text-white">
+          <span>Total</span>
+          <span className="text-blue-600">{totalPrice}€</span>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        disabled={paying || !!conflictingPeriod || !stripe}
+        className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold flex justify-center items-center gap-2 hover:bg-blue-700 transition mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {paying ? <Loader2 className="animate-spin" size={20} /> : <><Lock size={18} /> Payer {totalPrice}€</>}
+      </button>
+
+      <p className="text-center text-xs text-gray-400 flex items-center justify-center gap-1">
+        <Lock size={12} /> Paiement sécurisé par Stripe
+      </p>
+    </form>
+  );
+};
+
 /* ─── Page principale ─── */
 const Booking = () => {
   const { proId } = useParams();
@@ -188,7 +299,6 @@ const Booking = () => {
   const [room, setRoom] = useState(null);
   const [loadingRoom, setLoadingRoom] = useState(true);
   const [unavailable, setUnavailable] = useState([]);
-  const [paying, setPaying] = useState(false);
   const [error, setError] = useState('');
   const [pricing, setPricing] = useState(null);
   const [pricingLoading, setPricingLoading] = useState(false);
@@ -199,8 +309,6 @@ const Booking = () => {
     check_in: navState?.check_in || todayStr,
     check_out: navState?.check_out || addDays(todayStr, 1),
   });
-
-  const [card, setCard] = useState({ number: '', name: '', expiry: '', cvv: '' });
 
   useEffect(() => {
     Promise.all([
@@ -237,34 +345,6 @@ const Booking = () => {
     return unavailable.find(p => dates.check_in < p.check_out && dates.check_out > p.check_in);
   }, [dates, unavailable]);
 
-  const handlePay = async (e) => {
-    e.preventDefault();
-    setError('');
-    if (fromStr(dates.check_out) <= fromStr(dates.check_in)) {
-      setError("La date de départ doit être après la date d'arrivée."); return;
-    }
-    if (conflictingPeriod) {
-      setError("Ces dates sont déjà réservées. Veuillez choisir d'autres dates."); return;
-    }
-    if (!card.number || !card.name || !card.expiry || !card.cvv) {
-      setError('Veuillez remplir toutes les informations de paiement.'); return;
-    }
-    try {
-      setPaying(true);
-      const res = await api.post('bookings/', {
-        room: room.id,
-        check_in: dates.check_in,
-        check_out: dates.check_out,
-        total_price: totalPrice(),
-      });
-      navigate('/success', { state: { room, dates, total: totalPrice(), booking: res.data } });
-    } catch (err) {
-      setError(err.response?.data?.error || "Erreur lors de la réservation. Réessaie.");
-    } finally {
-      setPaying(false);
-    }
-  };
-
   if (loadingRoom) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-12 min-h-screen">
@@ -291,10 +371,6 @@ const Booking = () => {
           <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-8 space-y-4 h-fit">
             <Skeleton className="h-6 w-52" />
             <Skeleton className="h-12 w-full" />
-            <Skeleton className="h-12 w-full" />
-            <div className="grid grid-cols-2 gap-4">
-              <Skeleton className="h-12" /><Skeleton className="h-12" />
-            </div>
             <Skeleton className="h-14 w-full mt-4" />
           </div>
         </div>
@@ -354,7 +430,6 @@ const Booking = () => {
               <Calendar size={20} className="text-blue-600" /> Dates de séjour
             </h3>
 
-            {/* Récap dates sélectionnées */}
             <div className="grid grid-cols-2 gap-3 mb-5">
               <div className={`rounded-xl border-2 p-3 transition ${dates.check_in ? 'border-blue-500 bg-blue-50 dark:bg-blue-950' : 'border-gray-200 dark:border-gray-700'}`}>
                 <p className="text-xs font-bold text-gray-400 uppercase mb-1">Arrivée</p>
@@ -376,7 +451,6 @@ const Booking = () => {
               onChange={setDates}
             />
 
-            {/* Alerte conflit */}
             {conflictingPeriod && (
               <div className="mt-4 flex items-start gap-2 bg-red-50 border border-red-200 text-red-700 text-sm p-3 rounded-xl">
                 <XCircle size={16} className="mt-0.5 shrink-0" />
@@ -386,7 +460,6 @@ const Booking = () => {
               </div>
             )}
 
-            {/* Récap prix */}
             {!conflictingPeriod && (
               <div className="mt-4 space-y-3">
                 {pricingLoading ? (
@@ -450,91 +523,20 @@ const Booking = () => {
         {/* DROITE — Paiement */}
         <div className="bg-white dark:bg-gray-900 rounded-2xl shadow p-8 h-fit sticky top-24">
           <h3 className="text-lg font-bold dark:text-white mb-6 flex items-center gap-2">
-            <CreditCard size={20} className="text-blue-600" /> Informations de paiement
+            <CreditCard size={20} className="text-blue-600" /> Paiement sécurisé
           </h3>
 
-          {error && (
-            <div className="mb-4 bg-red-50 border border-red-200 text-red-600 text-sm p-3 rounded-lg flex items-start gap-2">
-              <XCircle size={16} className="mt-0.5 shrink-0" /> {error}
-            </div>
-          )}
-
-          <form onSubmit={handlePay} className="space-y-4">
-            <div>
-              <label className="text-xs text-gray-400 uppercase font-semibold mb-1 block">Numéro de carte</label>
-              <input
-                type="text"
-                placeholder="1234 5678 9012 3456"
-                maxLength={19}
-                value={card.number}
-                onChange={(e) => {
-                  const val = e.target.value.replace(/\D/g, '').slice(0, 16);
-                  setCard({ ...card, number: val.match(/.{1,4}/g)?.join(' ') || val });
-                }}
-                className="w-full border dark:border-gray-700 rounded-lg p-3 text-sm tracking-widest bg-white dark:bg-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div>
-              <label className="text-xs text-gray-400 uppercase font-semibold mb-1 block">Nom sur la carte</label>
-              <input
-                type="text"
-                placeholder="Jean Dupont"
-                value={card.name}
-                onChange={(e) => setCard({ ...card, name: e.target.value })}
-                className="w-full border dark:border-gray-700 rounded-lg p-3 text-sm bg-white dark:bg-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="text-xs text-gray-400 uppercase font-semibold mb-1 block">Expiration</label>
-                <input
-                  type="text"
-                  placeholder="MM/AA"
-                  maxLength={5}
-                  value={card.expiry}
-                  onChange={(e) => {
-                    const val = e.target.value.replace(/\D/g, '').slice(0, 4);
-                    setCard({ ...card, expiry: val.length > 2 ? `${val.slice(0,2)}/${val.slice(2)}` : val });
-                  }}
-                  className="w-full border dark:border-gray-700 rounded-lg p-3 text-sm bg-white dark:bg-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <div>
-                <label className="text-xs text-gray-400 uppercase font-semibold mb-1 block">CVV</label>
-                <input
-                  type="password"
-                  placeholder="•••"
-                  maxLength={3}
-                  value={card.cvv}
-                  onChange={(e) => setCard({ ...card, cvv: e.target.value.replace(/\D/g, '').slice(0, 3) })}
-                  className="w-full border dark:border-gray-700 rounded-lg p-3 text-sm bg-white dark:bg-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-            </div>
-
-            <div className="border-t dark:border-gray-700 pt-4 mt-2">
-              <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-1">
-                <span>Chambre ({nights()} nuit{nights() > 1 ? 's' : ''})</span>
-                <span>{totalPrice()}€</span>
-              </div>
-              <div className="flex justify-between font-black text-lg mt-2 text-gray-900 dark:text-white">
-                <span>Total</span>
-                <span className="text-blue-600">{totalPrice()}€</span>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={paying || !!conflictingPeriod}
-              className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold flex justify-center items-center gap-2 hover:bg-blue-700 transition mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {paying ? <Loader2 className="animate-spin" size={20} /> : <><Lock size={18} /> Payer {totalPrice()}€</>}
-            </button>
-
-            <p className="text-center text-xs text-gray-400 flex items-center justify-center gap-1">
-              <Lock size={12} /> Paiement sécurisé
-            </p>
-          </form>
+          <Elements stripe={stripePromise}>
+            <PaymentForm
+              room={room}
+              dates={dates}
+              totalPrice={totalPrice()}
+              nights={nights()}
+              conflictingPeriod={conflictingPeriod}
+              pricing={pricing}
+              pricingLoading={pricingLoading}
+            />
+          </Elements>
         </div>
       </div>
     </div>

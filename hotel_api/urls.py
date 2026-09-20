@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import RoomViewSet, BookingViewSet, profile, CustomTokenObtainPairView, site_settings, stats, staff_bookings, favorites_list, favorite_toggle
+from .views import RoomViewSet, BookingViewSet, profile, CustomTokenObtainPairView, site_settings, stats, staff_bookings, favorites_list, favorite_toggle, create_payment_intent
 from hotel_api import views
 from hotel_api.voice_views import voice_incoming, voice_respond
 from rest_framework_simplejwt.views import TokenRefreshView
@@ -25,6 +25,9 @@ urlpatterns = [
     path('login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     # Pour rafraîchir le token plus tard
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    # Stripe
+    path('payments/create-intent/', create_payment_intent, name='create_payment_intent'),
 
     # Agent vocal Twilio
     path('voice/', voice_incoming, name='voice_incoming'),

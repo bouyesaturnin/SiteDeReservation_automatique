@@ -1,3 +1,5 @@
+import os
+import stripe
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, permission_classes, action
 from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly, IsAuthenticated, BasePermission, SAFE_METHODS
@@ -189,8 +191,19 @@ class BookingViewSet(viewsets.ModelViewSet):
         check_in = request.data.get('check_in')
         check_out = request.data.get('check_out')
         room_id = request.data.get('room')
+        payment_intent_id = request.data.get('payment_intent_id')
 
-        # Vérifie s'il existe un chevauchement avec une réservation existante
+        if not payment_intent_id:
+            return Response({'error': 'Paiement requis.'}, status=status.HTTP_402_PAYMENT_REQUIRED)
+
+        stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+        try:
+            intent = stripe.PaymentIntent.retrieve(payment_intent_id)
+            if intent.status != 'succeeded':
+                return Response({'error': 'Paiement non complété.'}, status=status.HTTP_402_PAYMENT_REQUIRED)
+        except stripe.StripeError:
+            return Response({'error': 'Impossible de vérifier le paiement.'}, status=status.HTTP_400_BAD_REQUEST)
+
         overlap = Booking.objects.filter(
             room_id=room_id,
             check_in__lt=check_out,
@@ -443,6 +456,24 @@ def favorite_toggle(request, pk):
         fav.delete()
         return Response({'is_favorited': False})
     return Response({'is_favorited': True})
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def create_payment_intent(request):
+    amount = request.data.get('amount')
+    if not amount:
+        return Response({'error': 'Montant requis.'}, status=400)
+    stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+    try:
+        intent = stripe.PaymentIntent.create(
+            amount=int(float(amount) * 100),
+            currency='eur',
+            metadata={'user_id': request.user.id},
+        )
+        return Response({'client_secret': intent.client_secret})
+    except stripe.StripeError as e:
+        return Response({'error': str(e)}, status=400)
 
 
 @api_view(['POST'])
